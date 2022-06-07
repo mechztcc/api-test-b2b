@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "ts-node-dev -r tsconfig-paths/register --inspect --transpile-only --ignore-watch node_modules src/shared/http/server.ts",
+    "typeorm": "ts-node-dev ./node_modules/typeorm/cli.js"
   },
   "repository": {
     "type": "git",
@@ -17,7 +19,10 @@
     "url": "https://github.com/mechztcc/api-test-b2b/issues"
   },
   "homepage": "https://github.com/mechztcc/api-test-b2b#readme",
-  "dependencies": {
+  "devDependencies": {
+    "@types/node": "^17.0.40",
+    "ts-node-dev": "^2.0.0",
+    "tsconfig-paths": "^4.0.0",
     "typescript": "^4.7.3"
   }
 }
