@@ -5,6 +5,6 @@ const universityController = new UniversityController();
 
 const universityRouter = Router();
 
-universityRouter.get('/', universityController.populateBank);
+universityRouter.post('/', universityController.populateDataBase);
 
 export default universityRouter;
