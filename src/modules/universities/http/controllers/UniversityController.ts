@@ -22,7 +22,7 @@ export class UniversityController {
         uni.alpha_two_code = element['alpha_two_code'];
         uni.country = element['country'];
         uni.domains = element['domains'];
-        uni.state_province = element['state_province'];
+        uni.state_province = element['state-province'];
         uni.web_pages = element['web_pages'];
         uni.name = element['name'];
 
