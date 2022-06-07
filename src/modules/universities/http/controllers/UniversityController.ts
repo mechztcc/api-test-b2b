@@ -18,13 +18,14 @@ export class UniversityController {
       for (let index = 0; index < university.length; index++) {
         const element = university[index];
 
-        const uni = new University();
-        uni.alpha_two_code = element['alpha_two_code'];
-        uni.country = element['country'];
-        uni.domains = element['domains'];
-        uni.state_province = element['state-province'];
-        uni.web_pages = element['web_pages'];
-        uni.name = element['name'];
+        const uni = new University(
+          element['alpha_two_code'],
+          element['domains'],
+          element['country'],
+          element['state-province'],
+          element['web_pages'],
+          element['name']
+        );
 
         await manager.save(uni);
       }

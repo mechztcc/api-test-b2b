@@ -40,4 +40,23 @@ export class University {
     nullable: true,
   })
   updatedAt?: Date;
+
+  /**
+   *
+   */
+  constructor(
+    alpha_two_code?: string,
+    domains?: string[],
+    country?: string,
+    state_province?: string,
+    web_pages?: string[],
+    name?: string
+  ) {
+    this.alpha_two_code = alpha_two_code;
+    this.domains = domains;
+    this.country = country;
+    this.state_province = state_province;
+    this.web_pages = web_pages;
+    this.name = name;
+  }
 }
