@@ -1,4 +1,5 @@
 import { FindUniversitiesService } from '@modules/universities/services/FindUnivesitiesService';
+import { University } from '@modules/universities/typeorm/entities/University';
 import { Request, Response } from 'express';
 
 export class UniversityController {
@@ -6,6 +7,13 @@ export class UniversityController {
     const universitiesService = new FindUniversitiesService();
 
     const universities = await universitiesService.execute();
+    const universityModel = new University();
+
+    for (let index = 0; index < universities.length; index++) {
+      const element = universities[index];
+
+      
+    }
     return res.json(universities);
   }
 }

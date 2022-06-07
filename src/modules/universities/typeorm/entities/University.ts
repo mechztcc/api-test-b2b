@@ -1,11 +1,16 @@
-import { Column, Entity, ObjectID, ObjectIdColumn } from "typeorm";
-
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  ObjectID,
+  ObjectIdColumn,
+  UpdateDateColumn,
+} from 'typeorm';
 
 @Entity()
 export class University {
-
   @ObjectIdColumn()
-  id: ObjectID
+  _id: ObjectID;
 
   @Column()
   alpha_two_code: string;
@@ -24,4 +29,15 @@ export class University {
 
   @Column()
   name: string;
+
+  @CreateDateColumn({
+    type: 'timestamp',
+  })
+  createdAt?: Date;
+
+  @UpdateDateColumn({
+    type: 'timestamp',
+    nullable: true,
+  })
+  updatedAt?: Date;
 }
