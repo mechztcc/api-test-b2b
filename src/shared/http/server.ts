@@ -1,4 +1,5 @@
 import 'reflect-metadata';
+import 'express-async-errors';
 import express, { NextFunction, Request, response, Response } from 'express';
 import cors from 'cors';
 import routes from './routes';
