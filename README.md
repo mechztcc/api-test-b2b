@@ -82,3 +82,9 @@ uruguay]</h6>
 	"web_pages": ["eu.com.br"],<br>
 	"name": "teste"<br>
 }</h6>
+
+<br>
+<br>
+<h4> Many thanks for all that</h4>
+
+<h5> <b>"What we know is a drop, what we ignore is an ocean. " - <i> Sir Isaac Newton </i> </b></h5>
