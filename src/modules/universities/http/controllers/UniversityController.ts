@@ -7,6 +7,7 @@ import { IndexService } from '@modules/universities/services/IndexService';
 import { DeleteUniversityByIdService } from '@modules/universities/services/DeleteUniversityByIdService';
 import { StoreUniversityService } from '@modules/universities/services/StoreUniversityService';
 import { UpdateUniversityService } from '@modules/universities/services/UpdateUniversityService';
+import AppError from '@shared/errors/AppError';
 
 export class UniversityController {
   public async populateDataBase(req: Request, res: Response) {
@@ -83,6 +84,10 @@ export class UniversityController {
       state_province,
       web_pages,
     });
+
+    if (university.error) {
+      throw new AppError('there is already a university with this data', 409);
+    }
 
     return res.status(201).send({ university });
   }

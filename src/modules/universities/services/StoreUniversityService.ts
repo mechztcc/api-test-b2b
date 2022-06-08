@@ -21,6 +21,16 @@ export class StoreUniversityService {
   }: IRequest): Promise<any> {
     const manager = getManager();
 
+    const universityExists = await manager.findOne(University, {
+      country: country,
+      state_province: state_province,
+      name: name
+    });
+
+    if(universityExists) {
+      return { error: true }
+    }
+
     const university = new University(
       alpha_two_code,
       domains,
