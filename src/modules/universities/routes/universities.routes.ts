@@ -8,5 +8,7 @@ const universityRouter = Router();
 universityRouter.post('/populate-database', universityController.populateDataBase);
 universityRouter.get('/:id', universityController.findById);
 universityRouter.get('/', universityController.index);
+universityRouter.delete('/:id', universityController.deleteById);
+
 
 export default universityRouter;
