@@ -8,6 +8,6 @@ routes.get('/', (req, res) => {
   return res.json('Im Alive !');
 });
 
-routes.use('/populate-bank', universityRouter);
+routes.use('/universities', universityRouter);
 
 export default routes;
