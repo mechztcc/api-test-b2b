@@ -33,6 +33,15 @@ universityRouter.post(
   }),
   universityController.store
 );
-universityRouter.put('/:id', universityController.update);
+universityRouter.put('/:id', 
+celebrate({
+  [Segments.BODY]: {
+    domains: Joi.array(),
+    name: Joi.string(),
+    web_pages: Joi.array()
+  }
+})
+,
+universityController.update);
 
 export default universityRouter;
