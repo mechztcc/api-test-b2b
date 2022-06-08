@@ -14,7 +14,16 @@ export class UniversityController {
     const findUniversitiesService = new FindUniversitiesService();
     const manager = getManager();
 
-    const { countries } = req.body;
+    const countries  = req.body.countries ?? [
+      'argentina',
+      'brasil',
+      'chile',
+      'colombia',
+      'paraguai',
+      'peru',
+      'suriname',
+      'uruguay',
+    ];
 
     for (let index = 0; index < countries.length; index++) {
       const country = countries[index];
