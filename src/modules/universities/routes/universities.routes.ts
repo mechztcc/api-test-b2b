@@ -8,6 +8,11 @@ const universityRouter = Router();
 
 universityRouter.post(
   '/populate-database',
+  celebrate({
+    [Segments.BODY]: {
+      countries: Joi.array()
+    }
+  }),
   universityController.populateDataBase
 );
 
