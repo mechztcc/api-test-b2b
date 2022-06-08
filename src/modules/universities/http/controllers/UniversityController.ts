@@ -8,13 +8,14 @@ import { DeleteUniversityByIdService } from '@modules/universities/services/Dele
 import { StoreUniversityService } from '@modules/universities/services/StoreUniversityService';
 import { UpdateUniversityService } from '@modules/universities/services/UpdateUniversityService';
 import AppError from '@shared/errors/AppError';
+import { DeleteAllUniversitiesService } from '@modules/universities/services/DeleteAllUniversitiesService';
 
 export class UniversityController {
   public async populateDataBase(req: Request, res: Response) {
     const findUniversitiesService = new FindUniversitiesService();
     const manager = getManager();
 
-    const countries  = req.body.countries ?? [
+    const countries = req.body.countries ?? [
       'argentina',
       'brasil',
       'chile',
@@ -115,4 +116,5 @@ export class UniversityController {
 
     return res.status(204).send();
   }
+
 }
