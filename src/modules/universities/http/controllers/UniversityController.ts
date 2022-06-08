@@ -6,6 +6,7 @@ import { getManager } from 'typeorm';
 import { IndexService } from '@modules/universities/services/IndexService';
 import { DeleteUniversityByIdService } from '@modules/universities/services/DeleteUniversityByIdService';
 import { StoreUniversityService } from '@modules/universities/services/StoreUniversityService';
+import { UpdateUniversityService } from '@modules/universities/services/UpdateUniversityService';
 
 export class UniversityController {
   public async populateDataBase(req: Request, res: Response) {
@@ -84,5 +85,20 @@ export class UniversityController {
     });
 
     return res.status(201).send({ university });
+  }
+
+  public async update(req: Request, res: Response) {
+    const updateUniversityService = new UpdateUniversityService();
+    const { domains, name, web_pages } = req.body;
+    const { id } = req.params;
+
+    const university = await updateUniversityService.execute({
+      domains,
+      name,
+      web_pages,
+      _id: id,
+    });
+
+    return res.status(204).send();
   }
 }

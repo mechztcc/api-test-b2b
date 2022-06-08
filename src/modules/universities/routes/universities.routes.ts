@@ -11,6 +11,8 @@ universityRouter.get('/:id', universityController.findById);
 universityRouter.get('/', universityController.index);
 universityRouter.delete('/:id', universityController.deleteById);
 universityRouter.post('/', universityController.store);
+universityRouter.put('/:id', universityController.update);
+
 
 
 
