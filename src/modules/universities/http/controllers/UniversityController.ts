@@ -1,8 +1,9 @@
-import { FindUniversitiesByIdService } from '@modules/universities/services/FindUniversitiesByIdService';
+import { FindUniversityByIdService } from '@modules/universities/services/FindUniversitiesByIdService';
 import { FindUniversitiesService } from '@modules/universities/services/FindUnivesitiesService';
 import { University } from '@modules/universities/typeorm/entities/University';
 import { Request, Response } from 'express';
 import { getManager } from 'typeorm';
+import { IndexService } from '@modules/universities/services/IndexService';
 
 export class UniversityController {
   public async populateDataBase(req: Request, res: Response) {
@@ -36,12 +37,18 @@ export class UniversityController {
   }
 
   public async findById(req: Request, res: Response) {
-    const findUniversityByIdService = new FindUniversitiesByIdService();
+    const findUniversityByIdService = new FindUniversityByIdService();
     const { id } = req.params;
-    console.log(id);
-    
 
     const university = await findUniversityByIdService.execute({ id: id });
     return res.status(200).send({ university });
+  }
+
+  public async index(req: Request, res: Response) {
+    const indexService = new IndexService();
+
+    const universities = await indexService.execute();
+
+    return res.status(200).send({ universities });
   }
 }

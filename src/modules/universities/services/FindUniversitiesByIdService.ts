@@ -6,7 +6,7 @@ interface IRequest {
   id: string;
 }
 
-export class FindUniversitiesByIdService {
+export class FindUniversityByIdService {
   public async execute({ id }: IRequest): Promise<University> {
     const manager = getManager();
 
